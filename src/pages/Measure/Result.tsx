@@ -35,6 +35,7 @@ const Result: React.FC<{ data: any; onClose: () => void }> = ({
 					>
 						<Descriptions.Item
 							label="Patient"
+							className="font-bold"
 							span={3}
 						>
 							{data?.name}
@@ -81,14 +82,26 @@ const Result: React.FC<{ data: any; onClose: () => void }> = ({
 						</Descriptions.Item>
 
 						<Descriptions.Item
+							span={3}
 							label="Recommendation*"
 							className="font-bold"
 						>
 							{data?.score?.toFixed(2) > 30
-								? "The patient has a high level of myocardial infarction. You should be admitted to the hospital as soon as possible."
+								? "Patient has high level of myocardial infraction."
 								: data?.score?.toFixed(2) > 20
-								? "The patient has a medium level of myocardial infarction. After Six months stay on echo ecg regular checkup."
-								: "The patient has a low level of myocardial infraction. Food that can cause myocardial infarction can be avoided and strictly follow what the doctor said after meet up."}
+								? "Patient has medium level of myocardial infraction."
+								: "Patient has low level of myocardial infraction."}
+						</Descriptions.Item>
+						<Descriptions.Item
+							span={3}
+							label="Advice*"
+							className="font-bold"
+						>
+							{data?.score?.toFixed(2) > 30
+								? "You should be admitted to the hospital as soon as possible."
+								: data?.score?.toFixed(2) > 20
+								? "After Six months stay on echo ECG regular checkup."
+								: "Avoid foods that cause chest pain. Go to the doctor for regular checkup."}
 						</Descriptions.Item>
 					</Descriptions>
 					<Avatar
